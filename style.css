@@ -41,29 +41,40 @@ header .photo {
 
 /* === Navigation Bar === */
 nav {
-  display: flex;
-  justify-content: center;         /* center the links horizontally */
-  gap: 20px;                       /* space between links */
+  background-color: #1a1a1a;
   border-top: 1px solid #333;
   border-bottom: 1px solid #333;
-  padding: 12px 0;
   position: sticky;
   top: 0;
-  background-color: #1a1a1a;       /* slightly lighter than page background */
   z-index: 100;
+  padding: 12px 0;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;   /* centers the list horizontally */
+  gap: 20px;                 /* spacing between items */
+  list-style: none;          /* removes bullet points */
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
 }
 
 nav a {
-  color: #e6e6e6;                  /* soft white */
+  color: #e6e6e6;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.2s ease;
 }
 
 nav a:hover {
-  color: #ffffff;                  /* bright white on hover */
+  color: #ffffff;
   text-decoration: underline;
 }
+
 
 /* Stack vertically only on small screens (optional) */
 @media (max-width: 500px) {
@@ -135,6 +146,7 @@ footer {
     margin: 6px;
   }
 }
+
 
 
 
