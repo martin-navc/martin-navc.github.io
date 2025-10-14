@@ -94,12 +94,15 @@ ul li::before {
 
 /* === Links === */
 a {
-  color: #80b3ff;
+  color: #e6e6e6;           /* soft white */
+  text-decoration: none;   /* remove underline if you prefer */
 }
 
 a:hover {
-  color: #c9ddff;
+  color: #ffffff;          /* bright white on hover */
+  text-decoration: underline;
 }
+
 
 /* === Footer === */
 footer {
@@ -123,3 +126,4 @@ footer {
     margin: 6px;
   }
 }
+
