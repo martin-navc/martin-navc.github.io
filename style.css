@@ -52,15 +52,17 @@ nav {
   z-index: 100;
 }
 
+/* === Navigation Bar === */
 nav a {
-  color: #80b3ff;
+  color: #e6e6e6;             /* soft white */
   text-decoration: none;
   margin: 0 12px;
   font-weight: bold;
+  transition: color 0.2s ease;
 }
 
 nav a:hover {
-  color: #c9ddff;
+  color: #ffffff;             /* bright white on hover */
   text-decoration: underline;
 }
 
@@ -126,4 +128,5 @@ footer {
     margin: 6px;
   }
 }
+
 
