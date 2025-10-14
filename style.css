@@ -1,75 +1,396 @@
-/* style.css */
+/* -----------------------------------
+The Monospace Web - Minimalist Design
+Based on: https://github.com/owickstrom/the-monospace-web
+------------------------------------*/
+
+@import url('https://fonts.cdnfonts.com/css/jetbrains-mono-2');
+
+:root {
+  --font-family: "JetBrains Mono", monaco, Consolas, monospace;
+  --line-height: 1.20rem;
+  --text-color: #000;
+  --text-color-alt: #666;
+  --background-color: #fff;
+  --background-color-alt: #f5f5f5;
+  
+  --font-weight-normal: 500;
+  --font-weight-medium: 600;
+  --font-weight-bold: 800;
+  
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-normal);
+  font-style: normal;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-size: 16px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #ddd;
+    --text-color-alt: #999;
+    --background-color: #1a1a1a;
+    --background-color-alt: #2a2a2a;
+  }
+}
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+}
+
+* + * {
+  margin-top: var(--line-height);
+}
+
+html {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--background-color);
+  color: var(--text-color);
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
 
 body {
-  font-family: Arial, sans-serif;
-  color: #333;
+  position: relative;
+  width: 100%;
+  margin: 0 auto; /* Center the body content */
+  padding: var(--line-height) 2ch;
+  max-width: 1200px; /* Default max width using pixels for better control */
+  line-height: var(--line-height);
+  overflow-x: hidden;
+}
+
+/* Responsive width adjustments */
+@media screen and (max-width: 1280px) {
+  body {
+    max-width: 95%; /* Use percentage on medium screens */
+  }
+}
+
+/* Large screens (desktop, large laptops) */
+@media screen and (min-width: 1440px) {
+  body {
+    max-width: 1400px; /* Wider for large monitors */
+  }
+}
+
+/* Extra large screens (27"+ monitors, 4K displays) */
+@media screen and (min-width: 1920px) {
+  body {
+    max-width: 1600px; /* Maximum width for very large screens */
+  }
+}
+
+/* Responsive font size */
+@media screen and (max-width: 480px) {
+  :root {
+    font-size: 14px;
+  }
+  body {
+    padding: var(--line-height) 1ch;
+  }
+}
+
+/* Larger font for large screens for better readability */
+@media screen and (min-width: 1920px) {
+  :root {
+    font-size: 18px; /* Slightly larger base font */
+  }
+}
+
+/* Typography */
+h1, h2, h3 {
+  font-weight: var(--font-weight-bold);
+  margin: calc(var(--line-height) * 2) 0 var(--line-height);
+  line-height: var(--line-height);
+}
+
+h1 {
+  font-size: 1.8rem;
+  line-height: calc(1.5 * var(--line-height));
+  margin: 0;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-top: calc(var(--line-height) * 2);
+  margin-bottom: var(--line-height);
+  line-height: var(--line-height);
+  display: block;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--line-height);
+  word-break: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration-thickness: 1px;
+}
+
+strong, b {
+  font-weight: var(--font-weight-bold);
+}
+
+em {
+  font-style: italic;
+}
+
+/* Lists */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 var(--line-height) 0;
+}
+
+ul li {
   margin: 0;
   padding: 0;
-  line-height: 1.6;
 }
 
-header {
-  background-color: #f5f5f5;
-  text-align: center;
-  padding: 2rem 1rem;
+/* Header section */
+.header {
+  width: 100%;
+  margin-bottom: var(--line-height);
 }
 
-header .photo {
-  max-width: 150px;
-  border-radius: 50%;
-  margin-top: 1rem;
-}
-
-nav {
-  background-color: #004080;
-}
-
-nav ul {
-  list-style: none;
+.header h1 {
   margin: 0;
   padding: 0;
-  text-align: center;
 }
 
-nav li {
-  display: inline-block;
+.header .subtitle-links {
+  display: block;
+  font-size: 1.0rem;
+  color: var(--text-color-alt);
+  margin-top: 1.0rem;
 }
 
-nav a {
-  color: white;
+.header .subtitle-links span {
+  margin-right: 2ch;
+  color: var(--text-color-alt);
+}
+
+.header .subtitle-links span:last-child {
+  margin-right: 0;
+}
+
+.header .subtitle-links a {
+  color: var(--text-color-alt);
   text-decoration: none;
-  padding: 0.75rem 1rem;
-  display: inline-block;
 }
 
-nav a:hover {
-  background-color: #003060;
+.header .subtitle-links a:hover {
+  text-decoration: underline;
 }
 
-main {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+/* Main content layout */
+.main-content {
+  display: block;
+  width: 100%;
+  max-width: 100%; /* Ensure content doesn't exceed container */
 }
 
-section {
-  margin-bottom: 2rem;
-}
-
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #f5f5f5;
-  font-size: 0.9rem;
-}
-
-/* Responsive tweaks */
-@media (max-width: 600px) {
-  nav li {
-    display: block;
+/* Two-column layout for wider screens */
+@media screen and (min-width: 960px) {
+  .main-content {
+    display: flex;
+    flex-direction: row; /* Explicitly set direction */
+    flex-wrap: nowrap; /* Prevent wrapping to a third column */
+    gap: 6ch; /* Slightly larger gap for better separation */
+    align-items: flex-start;
+    justify-content: space-between; /* Distribute columns */
+    max-width: 100%; /* Never exceed container */
   }
-  nav a {
-    display: block;
-    padding: 0.5rem;
+  
+  /* Ensure only two sections can be flex children */
+  .main-content > *:not(.left-section):not(.right-section) {
+    display: none; /* Hide any unexpected third column */
+  }
+  
+  .left-section {
+    flex: 0 0 calc(40% - 3ch); /* Adjusted for better proportions */
+    width: calc(40% - 3ch); /* Explicit width */
+    max-width: 500px; /* Cap width for readability */
+    min-width: 0; /* Allow shrinking below content size */
+    position: sticky;
+    top: calc(var(--line-height) * 2);
+    align-self: flex-start; /* Keep at top while scrolling */
+  }
+  
+  .right-section {
+    flex: 0 0 calc(60% - 3ch); /* More space for content */
+    width: calc(60% - 3ch); /* Explicit width */
+    max-width: 900px; /* Cap width for readability */
+    min-width: 0; /* Allow shrinking below content size */
+  }
+  
+  /* Reset the global * + * margin for first elements in columns */
+  .left-section .info {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  
+  .right-section {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  
+  /* Override the * + * rule for the first children */
+  .main-content > .left-section,
+  .main-content > .right-section {
+    margin-top: 0;
+  }
+  
+  /* Align first text elements in both columns */
+  /* Use padding-top to create precise visual alignment */
+  .right-section > h2:first-child {
+    /* Override default h2 margins completely */
+    margin-top: 0 !important;
+    margin-bottom: var(--line-height);
+    padding: 0;
+    padding-top: 0.2rem; /* Compensate for font metrics difference */
+    line-height: var(--line-height);
+  }
+  
+  .info p:first-child {
+    margin-top: 0;
+    margin-bottom: var(--line-height);
+    padding: 0;
+    padding-top: 0.2rem; /* Same padding to ensure alignment */
+    line-height: var(--line-height);
+  }
+  
+  /* Ensure subsequent paragraphs have normal spacing */
+  .info p + p {
+    margin-top: 0; /* Reset the * + * rule */
+    margin-bottom: var(--line-height);
   }
 }
+
+/* Vertical layout for narrow screens and tablets */
+@media screen and (max-width: 959px) {
+  .main-content {
+    display: block; /* Ensure single column layout */
+  }
+  
+  .left-section,
+  .right-section {
+    width: 100%;
+    max-width: 100%; /* Ensure full width */
+    position: static; /* Remove sticky positioning */
+  }
+  
+  .left-section {
+    margin-bottom: calc(var(--line-height) * 2);
+  }
+}
+
+/* Tablet-specific adjustments */
+@media screen and (min-width: 768px) and (max-width: 959px) {
+  body {
+    padding: var(--line-height) 4ch; /* More padding on tablets */
+  }
+}
+
+/* Info section */
+.info {
+  margin-bottom: calc(var(--line-height) * 2);
+}
+
+.info p {
+  margin-bottom: var(--line-height);
+}
+
+.info p:last-child {
+  margin-bottom: 0;
+}
+
+.info-label {
+  font-weight: var(--font-weight-bold);
+}
+
+/* Papers section */
+.paper {
+  margin-bottom: calc(var(--line-height) * 1.5);
+  width: 100%; /* Ensure papers don't exceed their container */
+  max-width: 100%;
+  overflow-wrap: break-word; /* Break long words if needed */
+}
+
+.paper-title {
+  font-weight: var(--font-weight-bold);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.coauthors {
+  font-size: 0.875rem;
+  color: var(--text-color-alt);
+  display: block;
+  margin-top: 0;
+}
+
+.coauthors a {
+  color: var(--text-color-alt);
+}
+
+.coauthors a:hover {
+  text-decoration: underline;
+}
+
+.paper-status {
+  font-size: 0.875rem;
+  color: var(--text-color-alt);
+  font-style: italic;
+  display: block;
+  margin-top: 0;
+}
+
+.paper-status a {
+  color: var(--text-color-alt);
+}
+
+.paper-status a:hover {
+  text-decoration: underline;
+}
+
+.paper-links {
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.paper-links a {
+  color: var(--text-color-alt);
+}
+
+.paper-links a:hover {
+  text-decoration: underline;
+}
+
+.info a:hover {
+  text-decoration: underline;
+}
+
+.abstract {
+  font-size: 0.875rem;
+  margin-top: var(--line-height);
+  padding-left: 2ch;
+  color: var(--text-color-alt);
+  display: none;
+}
+
+.abstract-link {
+  cursor: pointer;
+  color: var(--text-color-alt);
+}
+
+/* Sections - removed duplicate width declarations as they're handled in media queries */
